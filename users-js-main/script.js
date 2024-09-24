@@ -3,6 +3,7 @@ const users = [
 	{
 		userName: "Alice",
 		lastName: "Johnson",
+		gender: "female",
 		age: 30,
 		address: {
 			street: "Oak Avenue",
@@ -14,6 +15,7 @@ const users = [
 	{
 		userName: "Charlie",
 		lastName: "Smith",
+		gender: "male",
 		age: 27,
 		address: {
 			street: "Maple Street",
@@ -25,6 +27,7 @@ const users = [
 	{
 		userName: "Diana",
 		lastName: "Brown",
+		gender: "female",
 		age: 35,
 		address: {
 			street: "Elm Road",
@@ -36,6 +39,7 @@ const users = [
 	{
 		userName: "Eve",
 		lastName: "Davis",
+		gender: "female",
 		age: 21,
 		address: {
 			street: "Birch Lane",
@@ -47,6 +51,7 @@ const users = [
 	{
 		userName: "Frank",
 		lastName: "Miller",
+		gender: "male",
 		age: 40,
 		address: {
 			street: "Pine Street",
@@ -58,6 +63,7 @@ const users = [
 	{
 		userName: "Grace",
 		lastName: "Wilson",
+		gender: "female",
 		age: 28,
 		address: {
 			street: "Cedar Avenue",
@@ -69,6 +75,7 @@ const users = [
 	{
 		userName: "Henry",
 		lastName: "Moore",
+		gender: "male",
 		age: 33,
 		address: {
 			street: "Poplar Road",
@@ -80,6 +87,7 @@ const users = [
 	{
 		userName: "Ivy",
 		lastName: "Taylor",
+		gender: "female",
 		age: 25,
 		address: {
 			street: "Willow Street",
@@ -91,6 +99,7 @@ const users = [
 	{
 		userName: "Jack",
 		lastName: "Anderson",
+		gender: "male",
 		age: 29,
 		address: {
 			street: "Spruce Avenue",
@@ -102,6 +111,7 @@ const users = [
 	{
 		userName: "Karen",
 		lastName: "Thomas",
+		gender: "female",
 		age: 37,
 		address: {
 			street: "Chestnut Street",
@@ -113,6 +123,7 @@ const users = [
 	{
 		userName: "Leo",
 		lastName: "Harris",
+		gender: "male",
 		age: 22,
 		address: {
 			street: "Fir Lane",
@@ -127,7 +138,9 @@ users.forEach((user) => {
 	document.querySelector(".container").innerHTML += `
 	<article class="card">
 						<div class="card-image">
-							<img src="./assets/01.jpg" alt="user name" />
+							<img src="./assets/${
+								user.gender == "male" ? "02" : "01"
+							}.jpg" alt="user name" />
 							<span class="card-title">${user.userName}</span>
 						</div>
 
@@ -137,12 +150,14 @@ users.forEach((user) => {
 								<li class="list-group-item"><strong>Age:</strong>${user.age}</li>
 								<li class="list-group-item">
 									<strong>Address:</strong> ${user.address.number} ${user.address.street}
-									<img class="list-group-img" src="./assets/apart.svg" alt="" />
+									<img class="list-group-img" src="./assets/${
+										user.address.house ? "house" : "apart"
+									}.svg" alt="" />
 								</li>
 								<li class="list-group-item">
 									<strong>Role:</strong> ${user.role}
 								</li>
 							</ul>
 						</div>
-					</article>`;
-});
+					</article>`
+})
